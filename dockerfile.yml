@@ -1,18 +1,8 @@
-# Use the official Nginx image as the base image
-FROM nginx:alpine
-
-# Copy the index.html file to the Nginx root directory
-COPY index.html /usr/share/nginx/html/
-
-# Copy a directory of pictures to the Nginx root directory
-COPY pictures /usr/share/nginx/html/pictures
-
-# Set the working directory to the Nginx root directory
-WORKDIR /usr/share/nginx/html
-
-# Expose port 80 for incoming traffic
+FROM ubuntu 
+RUN apt update 
+RUN apt install –y apache2 
+RUN apt install –y apache2-utils 
+RUN apt clean 
 EXPOSE 80
-
-# Start the Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+CMD [“apache2ctl”, “-D”, “FOREGROUND”]
 
