@@ -12,10 +12,6 @@
                  sh 'docker run -p 5000:5000 myapp'
              }
          }
-         stage("Test Container") {
-             steps {
-                 sh 'docker ps | grep myapp'
-             }
          stage("Login to AWS ECR") {
              steps {
                  withCredentials([aws(credentialsId: 'AWS_Cradentials', region: 'us-east-1')]) {
