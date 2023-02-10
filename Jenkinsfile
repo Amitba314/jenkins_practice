@@ -22,7 +22,7 @@
          stage("Push Docker Image to ECR") {
              steps {
                  sh 'docker tag myapp:latest 548341944327.dkr.ecr.us-east-1.amazonaws.com/myapp:latest'
-                 sh 'docker push 548341944327.dkr.ecr.us-east-1.amazonaws.com/myapp:latest'
+                 sh 'docker push 548341944327.dkr.ecr.us-east-1.amazonaws.com//jenkins_flask_image_repo:latest'
              }
          }
      }
