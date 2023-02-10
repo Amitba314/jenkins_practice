@@ -9,7 +9,7 @@
          }
          stage("Run Container") {
              steps {
-                 sh 'docker run -d -p 5002:5000 myapp'
+                 sh 'docker run -d -p 5003:5000 myapp'
              }
          }
          stage("Login to AWS ECR") {
