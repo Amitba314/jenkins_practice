@@ -21,15 +21,6 @@ pipeline {
 	sh 'docker push 548341944327.dkr.ecr.us-east-1.amazonaws.com/jenkins_flask_image_repo:1.0'
       }
     }
-    stage('SSH to App Server') 
-    {
-    	agent any
-      steps {
-        sh 'echo "Connecting to APP server..."'
-	sh 'sudo chmod 600 ~/.ssh/kirito_jenkins.pem'
-      	sh 'ssh -i ~/.ssh/kirito_jenkins.pem ubuntu@44.211.183.23'
-	sh 'echo "shalom"'
-      }
-    }
+   
   }
 }
