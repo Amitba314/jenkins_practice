@@ -16,7 +16,7 @@ pipeline {
     	agent any
       steps {
         sh 'echo "Pushing Image to ECR..."'
-        sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 548341944327.dkr.ecr.us-east-1.amazonaws.com'
+        sh 'docker login -u AWS -p $(aws ecr get-login-password --region us-east-1) 548341944327.dkr.ecr.us-east-1.amazonaws.com'
 	sh 'docker tag app_image:2.0 548341944327.dkr.ecr.us-east-1.amazonaws.com/jenkins_flask_image_repo:latest'
 	sh 'docker push 548341944327.dkr.ecr.us-east-1.amazonaws.com/jenkins_flask_image_repo:latest'
       }
